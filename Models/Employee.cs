@@ -24,7 +24,7 @@ namespace BangazonAPI.Models
     public bool IsSupervisor {get; set;}
 
 
-    public ICollection<EmployeeComputer> EmployeeComputer;
+    // public ICollection<EmployeeComputer> EmployeeComputer;
 
     public ICollection<TrainingProgram> TrainingProgram;
 
