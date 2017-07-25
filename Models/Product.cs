@@ -21,6 +21,9 @@ namespace BangazonAPI.Models
         public int CustomerId {get; set;}
         [Required]
         public int ProductTypeId {get; set;}
-        
+
+        public ICollection<OrderProduct> OrderProducts;
+        public Customer Customer {get; set;}
+        public ProductType ProductType {get; set;}
     }
 }
