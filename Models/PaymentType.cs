@@ -12,7 +12,7 @@ namespace BangazonAPI.Models
 
         [Required]
         public int AccountNumber { get; set; }
-
+        [Required]
         public string Type { get; set; }
 
         [Required]
