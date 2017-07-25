@@ -27,7 +27,7 @@ namespace BangazonAPI.Models
         public DateTime LastLogin { get; set; }
         
         [Required]
-        public bool IsActive { get; set; }
+        public int IsActive { get; set; }
 
         public ICollection<Product> Products;
         public ICollection<Order> Orders;
