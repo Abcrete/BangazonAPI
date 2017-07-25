@@ -16,13 +16,18 @@ namespace BangazonAPI.Models
     [Required]
     public string LastName {get; set;}
 
+    [Required]
     public int DepartmentId {get; set;}
     public Department Department {get; set;}
 
 
-    [DefaultValue (false)]
-    public bool IsSupervisor {get; set;}
+    [Required]
+    public int IsSupervisor {get; set;}
 
+    public Employee()
+    {
+      IsSupervisor = 0;
+    }
 
     // public ICollection<EmployeeComputer> EmployeeComputer;
 
