@@ -24,10 +24,10 @@ namespace BangazonAPI.Models
     [Required]
     public int IsSupervisor {get; set;}
 
-    public Employee()
-    {
-      IsSupervisor = 0;
-    }
+    // public Employee()
+    // {
+    //   IsSupervisor = 0;
+    // }
 
     // public ICollection<EmployeeComputer> EmployeeComputer;
 
