@@ -58,7 +58,7 @@ namespace BangazonAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Product.Add(product);
+            _context.Department.Add(department);
             
             try
             {
