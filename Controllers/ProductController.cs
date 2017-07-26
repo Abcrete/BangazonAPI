@@ -18,6 +18,8 @@ namespace BangazonAPI.Controllers
         {
             _context = ctx;
         }
+
+        [HttpGet]
         public IActionResult Get()
         {
             IQueryable<object> products = from product in _context.Product select product;
