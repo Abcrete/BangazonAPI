@@ -92,7 +92,7 @@ namespace BangazonAPI.Controllers
                 }
             }
 
-            return CreatedAtRoute("GetChild", new { id = person.CustomerId }, person);
+            return CreatedAtRoute("GetCustomer", new { id = person.CustomerId }, person);
         }
 
         
