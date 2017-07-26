@@ -131,25 +131,25 @@ namespace BangazonAPI.Controllers
         }
 
         //Delete api/employee/id
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        // [HttpDelete("{id}")]
+        // public IActionResult Delete(int id)
+        // {
+        //     if (!ModelState.IsValid)
+        //     {
+        //         return BadRequest(ModelState);
+        //     }
 
-            Employee employee = _context.Employee.Single(p => p.EmployeeId == id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
+        //     Employee employee = _context.Employee.Single(p => p.EmployeeId == id);
+        //     if (employee == null)
+        //     {
+        //         return NotFound();
+        //     }
 
-            _context.Employee.Remove(employee);
-            _context.SaveChanges();
+        //     _context.Employee.Remove(employee);
+        //     _context.SaveChanges();
 
-            return Ok(employee);
+        //     return Ok(employee);
 
-        }
+        // }
     }
 }
