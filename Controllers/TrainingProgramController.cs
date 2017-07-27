@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BangazonAPI.Data;
 using BangazonAPI.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,13 +12,17 @@ using Microsoft.EntityFrameworkCore;
 namespace BangazonAPI.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     public class TrainingProgramController : Controller
     {
+        // This class was authored by Azim
         private BangazonContext _context;
         public TrainingProgramController(BangazonContext ctx)
         {
             _context = ctx;
         }
+         /*This method is a GET request which takes zero arguments and returns all trainingprogram
+        in TrainingProgram Table of database.*/
         // GET api/trainingprogram
         [HttpGet]
         public IActionResult Get()
@@ -32,6 +37,8 @@ namespace BangazonAPI.Controllers
             return Ok(trainProgs);
             
         }
+        /*This method is a GET request which takes id as a TPId and returns requested trainingprogram
+        in TrainingProgram Table of database.*/
 
         // GET api/trainingprogram/2
         [HttpGet("{id}", Name = "GetTrainingProgram")]
@@ -58,6 +65,7 @@ namespace BangazonAPI.Controllers
                 return NotFound();
             }
         }
+        /*This is a POST request which creates and adds a trainingProgram to the TrainingProgram Table from the arguments passed in.*/
 
         // POST api/trainingprogram
         [HttpPost]
@@ -93,7 +101,7 @@ namespace BangazonAPI.Controllers
         {
             return _context.TrainingProgram.Count(e => e.TrainingProgramId == trainingProgramId) > 0;
         }
-
+        /*This is a PUT request which modifies a trainingProgram in the TrainingProgram Table from the arguments passed in.*/
         // PUT api/trainingprogram/2
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] TrainingProgram trainProgs)
@@ -128,7 +136,7 @@ namespace BangazonAPI.Controllers
 
             return new StatusCodeResult(StatusCodes.Status204NoContent);
         }
-
+        /*This is a DELETE request which deletes a trainingProgram in the TrainingProgram Table from the id it passed in.*/
         // DELETE api/trainingprogram/2
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

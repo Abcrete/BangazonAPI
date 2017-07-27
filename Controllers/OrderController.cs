@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BangazonAPI.Data;
 using BangazonAPI.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,13 +12,17 @@ using Microsoft.EntityFrameworkCore;
 namespace BangazonAPI.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     public class OrderController : Controller
     {
+        // This class was authored by Azim
         private BangazonContext _context;
         public OrderController(BangazonContext ctx)
         {
             _context = ctx;
         }
+         /*This method is a GET request which takes zero arguments and returns all orders
+        in Order Table of database.*/
         // GET api/Order
         [HttpGet]
         public IActionResult Get()
@@ -32,6 +37,8 @@ namespace BangazonAPI.Controllers
             return Ok(orders);
             
         }
+         /*This method is a GET request which takes id as a OrderId and returns requested order
+        in Order Table of database.*/
 
         // GET api/Order/2
         [HttpGet("{id}", Name = "GetOrder")]
@@ -58,7 +65,7 @@ namespace BangazonAPI.Controllers
                 return NotFound();
             }
         }
-
+        /*This is a POST request which creates and adds a order to the Order Table from the arguments passed in.*/
         // POST api/Order
         [HttpPost]
         public IActionResult Post([FromBody] Order orders)
@@ -95,7 +102,7 @@ namespace BangazonAPI.Controllers
         }
 
 
-
+        /*This is a PUT request which modifies a order in the Order Table from the arguments passed in.*/
         // PUT api/Order/2
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Order orders)
@@ -130,7 +137,7 @@ namespace BangazonAPI.Controllers
 
             return new StatusCodeResult(StatusCodes.Status204NoContent);
         }
-
+        /*This is a DELETE request which deletes a order in the Order Table from the id it passed in.*/
         // DELETE api/Order/2
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
