@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace BangazonAPI.Models
 {
     // Department class represents a department in the company which can contain many employees
+    //Authored by: Jason Smith
     public class Department
     {
         [Key]

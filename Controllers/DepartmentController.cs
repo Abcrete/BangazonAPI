@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Cors;
 namespace BangazonAPI.Controllers
 {
     // controller for "api/department" calls
+    //Authored by: Jason Smith
     [Route("api/[controller]")]
     [EnableCors("AllowSpecificOrigin")]
     public class DepartmentController : Controller
@@ -24,7 +25,8 @@ namespace BangazonAPI.Controllers
             _context = ctx;
         }
 
-        // Get() accepts no arguments and return a list of all departments
+        // Get() accepts no arguments and returns a list of all departments
+        //Authored by: Jason Smith
         [HttpGet]
         public IActionResult Get()
         {
@@ -39,6 +41,7 @@ namespace BangazonAPI.Controllers
 
         // Get(id) accepts an id, which corresponds to the id of a department, returning the department specified.  The "Name" is a shortcut 
         // for calling the method later in the program, specifically for returning a valuable dataset on post and put methods
+        //Authored by: Jason Smith
         [HttpGet("{id}", Name = "GetDepartment")]
         public IActionResult Get(int id)
         {
@@ -60,7 +63,9 @@ namespace BangazonAPI.Controllers
             }
         }
 
-        // Post method accepts a "Department" object formed from the body of the caller and adds that 
+        // Post method accepts a "Department" object formed from the body of the caller and adds it the database.  The argument forms a 
+        // department object from the body of the request.  Returns callback of "GetDepartment" method named in the HttpGet from above
+        //Authored by: Jason Smith
         [HttpPost]
         public IActionResult Post([FromBody] Department department)
         {
@@ -90,11 +95,17 @@ namespace BangazonAPI.Controllers
             return CreatedAtRoute("GetDepartment", new { id = department.DepartmentId }, department);
         }
 
+        // Checks whether a department with the given id exists in the Dbcontext.  Returns true if there are one or more, false if not
+        //Authored by: Jason Smith
         public bool DepartmentExists(int id)
         {
             return _context.Department.Count(d => d.DepartmentId == id) > 0;
         }
 
+        // Put method must have id in http request.  This method accepts that id as an argument as well as a Department object from the body.
+        // Enters the department into the dbcontext then saves it to the db file
+        // Returns callback of "GetDepartment" method named in the HttpGet, same as in Post method
+        //Authored by: Jason Smith
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Department department)
         {
