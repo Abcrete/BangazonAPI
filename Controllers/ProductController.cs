@@ -9,6 +9,7 @@ using BangazonAPI.Data;
 using BangazonAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 
 namespace BangazonAPI.Controllers
 {
@@ -16,6 +17,7 @@ namespace BangazonAPI.Controllers
     // controller for "api/product" calls
     // Authored by: Jason Smith
     [Route("api/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     public class ProductController : Controller
     {
         private BangazonContext _context;
