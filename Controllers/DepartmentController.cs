@@ -1,3 +1,5 @@
+//Authored by: Jason Smith
+//Purpose: Create methods for controlling department objects, GET, POST, and PUT methods  (not delete)
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +9,13 @@ using BangazonAPI.Data;
 using BangazonAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 
 namespace BangazonAPI.Controllers
 {
+    // controller for "api/department" calls
     [Route("api/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     public class DepartmentController : Controller
     {
         private BangazonContext _context;
@@ -18,6 +23,9 @@ namespace BangazonAPI.Controllers
         {
             _context = ctx;
         }
+
+        // Get() accepts no arguments and return a list of all departments
+        [HttpGet]
         public IActionResult Get()
         {
             IQueryable<object> department = from dept in _context.Department select dept;
@@ -29,6 +37,8 @@ namespace BangazonAPI.Controllers
             return Ok(department);
         }
 
+        // Get(id) accepts an id, which corresponds to the id of a department, returning the department specified.  The "Name" is a shortcut 
+        // for calling the method later in the program, specifically for returning a valuable dataset on post and put methods
         [HttpGet("{id}", Name = "GetDepartment")]
         public IActionResult Get(int id)
         {
@@ -50,6 +60,7 @@ namespace BangazonAPI.Controllers
             }
         }
 
+        // Post method accepts a "Department" object formed from the body of the caller and adds that 
         [HttpPost]
         public IActionResult Post([FromBody] Department department)
         {
