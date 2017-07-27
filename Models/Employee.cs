@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace BangazonAPI.Models
 {
 
+
   // Use Models in namespace for reference to Employee.cs location
   // Authored by: Tamela Lerma
 
@@ -28,6 +29,7 @@ namespace BangazonAPI.Models
     public string LastName {get; set;}
 
 
+
     // Get and Set Employee DepartmentId
     // FK-DepartmentId from Department Table
     // Must create an instance of the Class Department to retrieve FK 
@@ -36,7 +38,11 @@ namespace BangazonAPI.Models
     public int DepartmentId {get; set;}
     public Department Department {get; set;}
 
-    // Get and set IsSupervisor 0 = False, 1 = True, SqLite will not except bool
+
+    // Get and set IsSupervisor 0 = False, 1 = True
+    // SqLite will not accept Bool int Value, Using Sql format of 0 and 1 to establish true or false
+    // 0 = False
+    // 1 = True
     [Required]
     public int IsSupervisor {get; set;}
 

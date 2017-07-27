@@ -57,8 +57,6 @@ namespace BangazonAPI
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            //app.UseCors("AllowSpecificOrigin");
-
             Console.WriteLine("Configure");
 
 
