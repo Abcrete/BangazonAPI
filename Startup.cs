@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using BangazonAPI.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace BangazonAPI
 {
@@ -35,9 +36,10 @@ namespace BangazonAPI
             // Add CORS framework
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowWhiteListOrigins",
-                    builder => builder.WithOrigins("http://example.com"));
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("http://bangazon.com", "http://127.0.0.1:8080"));
             });
+
 
             // Add framework services.
             services.AddMvc();
@@ -52,12 +54,14 @@ namespace BangazonAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            app.UseCors("AllowWhiteListOrigins");
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+
+            app.UseCors("AllowSpecificOrigin");
+
 
             Console.WriteLine("Configure");
 
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
 
             app.UseMvc();
 
