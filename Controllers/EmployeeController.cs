@@ -75,7 +75,7 @@ namespace BangazonAPI.Controllers
             }
         }
 
-        // Post path is api/employee, Method requires all columns in table
+        // Post path is api/employee
         // EmployeeId is Auto-Generated, value does not have to be applied when creating
         // Required-
         // DepartmentId : FK-DepartmentId from Department Table
@@ -116,7 +116,7 @@ namespace BangazonAPI.Controllers
             return CreatedAtRoute("GetEmployee", new {id = employee.EmployeeId}, employee);
         } 
 
-        // internal Method to check if ComputerId exists, 
+        // internal Method to check if EmployeeId exists, 
         // if Count is greater than 0 returns True
         // ensures duplicates are not made and correct error is given
         // Authored by: Tamela Lerma
