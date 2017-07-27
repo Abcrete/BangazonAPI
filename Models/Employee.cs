@@ -36,7 +36,10 @@ namespace BangazonAPI.Models
     public int DepartmentId {get; set;}
     public Department Department {get; set;}
 
-    // Get and set IsSupervisor 0 = False, 1 = True, SqLite will not except bool
+    // Get and set IsSupervisor 0 = False, 1 = True,
+    // SqLite will not accept Bool int Value
+    // 0 = False
+    // 1 = True
     [Required]
     public int IsSupervisor {get; set;}
 
