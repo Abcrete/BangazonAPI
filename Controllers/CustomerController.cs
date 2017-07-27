@@ -19,12 +19,18 @@ namespace BangazonAPI.Controllers
             _context = ctx;
         }
 
+        /*This internal method checks for the existence of a customer based on the customerId argument.
+        This method was authored by Jordan Dhaenens */
+        
         private bool CustomerExists(int customerId)
         {
           return _context.Customer.Count(e => e.CustomerId == customerId) > 0;
         }
 
-        // GET api/values
+        /*This method is a GET request which takes zero arguments and returns all customers
+        in Customer Table of database.
+        This method was authored by Jordan Dhaenens*/
+        // GET path~ api/customer
         [HttpGet]
         public IActionResult Get()
         {
@@ -39,7 +45,11 @@ namespace BangazonAPI.Controllers
 
         }
 
-        // GET api/values/5
+        /*This overload method is a GET request which takes one argument, "id", and returns a single customer
+        from Customer Table.
+        Argument: this is the CustomerId of the customer you wish to search for.
+        This method was authored by Jordan Dhaenens*/
+        // GET path~ api/customer/5
         [HttpGet("{id}", Name = "GetCustomer")]
         public IActionResult Get([FromRoute] int id)
         {
@@ -65,7 +75,15 @@ namespace BangazonAPI.Controllers
             }
         }
 
-        // POST api/values
+        /*This is a POST request which creates and adds a customer to the Customer Table from the arguments passed in.
+        --ARGUMENTS--
+        "FirstName": "Jane" --This sets the FirstName property of the customer instance--
+        "LastName": "Doe",  --This sets the LastName property of the customer instance--
+        "IsActive": 0 or 1  --This sets the IsActive property of the customer instance. 0 represents false--
+
+        This method was authored by Jordan Dhaenens
+        */
+        //POST path~ api/values
         [HttpPost]
         public IActionResult Post([FromBody] Customer person)
         {
@@ -96,8 +114,23 @@ namespace BangazonAPI.Controllers
         }
 
         
-
-        // PUT api/values/5
+        /*This is a PUT request which amends a customer on the Customer Table from the arguments passed in. You 
+        cannot modify the value of the following properties unless otherwise noted:
+        --ARGUMENTS--
+            {integer} this is the CustomerId of the customer you wish to search for. 
+        --Body--
+        "products": null, --This should not be modified here--
+        "orders": null,  --This should not be modified here--
+        "paymentTypes": null,  --This should not be modified here--
+        "customerId": 2,  --This should not be modified EVER--
+        "FirstName": "Jane" --This value can be modified--
+        "LastName": "Doe",  --This value can be modified--
+        "acctCreatedOn": "2017-07-26T15:58:00",  --This should not be modified here--
+        "lastLogin": "2017-07-26T15:58:00",  --This should not be modified here--
+        "IsActive": 0 or 1  --This value can be modified--
+        */
+        //This method was authored by Jordan Dhaenens
+        //PUT path~ api/customer/5
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Customer person)
         {
