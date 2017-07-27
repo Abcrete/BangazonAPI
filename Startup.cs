@@ -37,7 +37,7 @@ namespace BangazonAPI
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
-                    builder => builder.WithOrigins("http://bangazon.com", "http://127.0.0.1:8080"));
+                    builder => builder.WithOrigins("http://www.bangazon.com", "http://127.0.0.1:8080"));
             });
 
 
@@ -56,9 +56,6 @@ namespace BangazonAPI
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
-            app.UseCors("AllowSpecificOrigin");
-
 
             Console.WriteLine("Configure");
 
