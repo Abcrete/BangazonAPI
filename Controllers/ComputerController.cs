@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BangazonAPI.Data;
 using BangazonAPI.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BangazonAPI.Controllers
 {
     [Route ("api/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     public class ComputerController : Controller
     {
         private BangazonContext _context;
