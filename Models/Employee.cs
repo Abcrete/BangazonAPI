@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BangazonAPI.Models
 {
-
   // Use Models in namespace for reference to Employee.cs location
   // Authored by: Tamela Lerma
 
@@ -36,8 +35,9 @@ namespace BangazonAPI.Models
     public int DepartmentId {get; set;}
     public Department Department {get; set;}
 
-    // Get and set IsSupervisor 0 = False, 1 = True,
-    // SqLite will not accept Bool int Value
+
+    // Get and set IsSupervisor 0 = False, 1 = True
+    // SqLite will not accept Bool int Value, Using Sql format of 0 and 1 to establish true or false
     // 0 = False
     // 1 = True
     [Required]
