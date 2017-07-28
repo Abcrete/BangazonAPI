@@ -19,15 +19,15 @@
 1. Department
 
 ### Controllers That Handle Get, Post, Put and Delete operations
-1. ProductController
-1. ProductTypeController
-1. CustomerController
-1. OrderController
-1. PaymentTypeController
-1. EmployeeController
-1. ComputerController
-1. TrainingProgramController
-1. DepartmentController
+1. ProductController            operations: Get(), Post(), Put(), Delete()
+1. ProductTypeController        operations: Get(), Post(), Put(), Delete()
+1. CustomerController           operations: Get(), Post(), Put()
+1. OrderController              operations: Get(), Post(), Put(), Delete()
+1. PaymentTypeController        operations: Get(), Post(), Put(), Delete()
+1. EmployeeController           operations: Get(), Post(), Put()
+1. ComputerController           operations: Get(), Post(), Put(), Delete()
+1. TrainingProgramController    operations: Get(), Post(), Put(), Delete()
+1. DepartmentController         operations: Get(), Post(), Put()
 
 # How to Test 
 ### First Clone the Repository 
