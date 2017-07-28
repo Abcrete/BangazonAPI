@@ -1,97 +1,101 @@
 # Building the Bangazon Platform API
 
-Welcome, new Bangazonians!
 
-Your job is to build out a .NET Web API that makes each resource in the Bangazon ERD available to application developers throughout the entire company.
 
-1. Products
-1. Product types
-1. Customers
-1. Orders
-1. Payment types
-1. Employees
-1. Computers
-1. Training programs
-1. Departments
+ .NET Web API app that makes each resource in the Bangazon ERD available to application developers throughout the entire company.
 
-> **Pro tip:** You do not need to make a Model for the join tables, because those aren't resources.
 
-Your product owner will provide you with a prioritized backlog of features for you to work on over the development sprint. The first version of the API will be completely open since we have not determined which authentication method we want to use yet.
+### Model Classes Used to build DataBase structure, Primary and Foreign Keys
 
-The only restriction on the API is that only requests from the `www.bangazon.com` domain should be allowed. Requests from that domain should be able to access every resource, and perform any operation a resource.
+1. Product
+1. ProductType
+1. Customer
+1. Order
+1. OrderProduct
+1. PaymentType
+1. Employee
+1. Computer
+1. TrainingProgram
+1. Department
 
-## What You Should Do
+### Controllers That Handle Get, Post, Put and Delete operations
+1. ProductController            operations: Get(), Post(), Put(), Delete()
+1. ProductTypeController        operations: Get(), Post(), Put(), Delete()
+1. CustomerController           operations: Get(), Post(), Put()
+1. OrderController              operations: Get(), Post(), Put(), Delete()
+1. PaymentTypeController        operations: Get(), Post(), Put(), Delete()
+1. EmployeeController           operations: Get(), Post(), Put()
+1. ComputerController           operations: Get(), Post(), Put(), Delete()
+1. TrainingProgramController    operations: Get(), Post(), Put(), Delete()
+1. DepartmentController         operations: Get(), Post(), Put()
 
-### Plan
+# How to Test 
+### First Clone the Repository 
+https://github.com/Abcrete/BangazonAPI
 
-First, you need to plan. Your team needs to come to a consensus about the Bangazon ERD design. Once you feel you have consensus, you must get it approved by your manager before you begin writing code for the API.
-
-### Modeling
-
-Next, you need to author the Models needed for your API. Make sure that each model has the approprate foreign key relationship defined on it, either with a custom type or an `ICollection<T>` to store many related things. The boilerplate code shows you one example - the relationship between `Order` and `OrderProduct`, which is 1 -> &#8734;. For every _OrderId_, it can be stored in the `OrderProduct` table many times.
-
-Once you've added a Model, remember to add a new `DBSet<T>` to the `BangazonContext` class for that type.
-
-### Migrate
-
-Once you have all of your Models defined, attempt your first migration.
-
+## Create an Environment Variable to set file path for Database
+* On Mac open and edit your .zshrc file in terminal
 ```
-dotnet ef migrations add InitialDBCreation
-```
+1. vim ~/.zshrc
+2. enter i to insert
 
-This will read your Models and build the instructions necessary to create corresponding tables in the database based off of your annotations and foreign key relationships. To be responsible, you should read the migration file before committing the changes to your database.
-
-### Update Database
-
-If the migration was successful. Go ahead and execute the instructions and create the tables.
-
-```
-dotnet ef database update
+Add variable
+3. export BANGAZON_DB="/Enter the full filepath to the directory where you cloned the repo/Bangazon.db"
+4. press esc
+5. :x to Save and exit vim
+to refresh file type the following command in terminal and hit enter:
+6. source ~/.zshrc
 ```
 
-Once that is complete, go ahead and open up the database in the DB Browser for SQLite tool and see what it created for you.
+Navigate to your project directory in terminal and run the following commands:
+```
+1. dotnet restore
 
-### Controllers
+* Migration
+This will read the Models and build the instructions necessary to create corresponding tables in the database based off of your annotations and foreign key relationships.
 
-Now it's time to build the controllers that handle GET, POST, PUT, and DELETE operations on each resource.
+2.  dotnet ef migrations add InitialDBCreation
 
-# About ASP.NET Core
+* Update Database
+Execute the instructions created by the Migration and Build the Database
 
-We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
+3. dotnet ef database update
+```
 
-You've created a new ASP.NET Core project. [Learn what's new](https://go.microsoft.com/fwlink/?LinkId=518016)
+## Use PostMan to Post Values to Database
+Make sure to have Postman installed: https://www.getpostman.com/
+```
+Example for Product:
+{
+	"Price": 11.00,
+	"Title": "Pizza",
+	"Description": "A giant slice of delicious pizza from Joey's.",
+	"CustomerId": 1,
+	"ProductAmount": 1,
+}
+
+To view all products:
+Select GET
+http://localhost:5000/api/product
+
+To view a single product:
+Select GET
+http://localhost:5000/api/product/{id}
+
+To edit a single product
+Select PUT
+http://localhost:5000/api/product/{id}
+
+To delete a single product
+Select DELETE
+http://localhost:5000/api/product/{id}
+```
+
 
 ## This application consists of:
 
-*   Sample pages using ASP.NET Core MVC
+*   ASP.NET Core MVC
 *   [Bower](https://go.microsoft.com/fwlink/?LinkId=518004) for managing client-side libraries
 *   Theming using [Bootstrap](https://go.microsoft.com/fwlink/?LinkID=398939)
+*   Asp.Net Core Web API
 
-## How to
-
-*   [Add a Controller and View](https://go.microsoft.com/fwlink/?LinkID=398600)
-*   [Add an appsetting in config and access it in app.](https://go.microsoft.com/fwlink/?LinkID=699562)
-*   [Manage User Secrets using Secret Manager.](https://go.microsoft.com/fwlink/?LinkId=699315)
-*   [Use logging to log a message.](https://go.microsoft.com/fwlink/?LinkId=699316)
-*   [Add packages using NuGet.](https://go.microsoft.com/fwlink/?LinkId=699317)
-*   [Add client packages using Bower.](https://go.microsoft.com/fwlink/?LinkId=699318)
-*   [Target development, staging or production environment.](https://go.microsoft.com/fwlink/?LinkId=699319)
-
-## Overview
-
-*   [Conceptual overview of what is ASP.NET Core](https://go.microsoft.com/fwlink/?LinkId=518008)
-*   [Fundamentals of ASP.NET Core such as Startup and middleware.](https://go.microsoft.com/fwlink/?LinkId=699320)
-*   [Working with Data](https://go.microsoft.com/fwlink/?LinkId=398602)
-*   [Security](https://go.microsoft.com/fwlink/?LinkId=398603)
-*   [Client side development](https://go.microsoft.com/fwlink/?LinkID=699321)
-*   [Develop on different platforms](https://go.microsoft.com/fwlink/?LinkID=699322)
-*   [Read more on the documentation site](https://go.microsoft.com/fwlink/?LinkID=699323)
-
-## Run & Deploy
-
-*   [Run your app](https://go.microsoft.com/fwlink/?LinkID=517851)
-*   [Run tools such as EF migrations and more](https://go.microsoft.com/fwlink/?LinkID=517853)
-*   [Publish to Microsoft Azure Web Apps](https://go.microsoft.com/fwlink/?LinkID=398609)
-
-We would love to hear your [feedback](https://go.microsoft.com/fwlink/?LinkId=518015)
