@@ -13,9 +13,9 @@ namespace BangazonAPI.Controllers
 {
     [Route("api/[controller]")]
     [EnableCors("AllowSpecificOrigin")]
+    // This class was authored by Azim
     public class OrderController : Controller
     {
-        // This class was authored by Azim
         private BangazonContext _context;
         public OrderController(BangazonContext ctx)
         {
@@ -23,7 +23,7 @@ namespace BangazonAPI.Controllers
         }
          /*This method is a GET request which takes zero arguments and returns all orders
         in Order Table of database.*/
-        //This class is authored by Azim.
+        //This method is authored by Azim.
         // GET api/Order
         [HttpGet]
         public IActionResult Get()
@@ -40,7 +40,7 @@ namespace BangazonAPI.Controllers
         }
          /*This method is a GET request which takes id as a OrderId and returns requested order
         in Order Table of database.*/
-        //This class is authored by Azim.
+        //This method is authored by Azim.
         // GET api/Order/2
         [HttpGet("{id}", Name = "GetOrder")]
         public IActionResult Get([FromRoute] int id)
@@ -67,7 +67,7 @@ namespace BangazonAPI.Controllers
             }
         }
         /*This is a POST request which creates and adds a order to the Order Table from the arguments passed in.*/
-        //This class is authored by Azim.
+        //This method is authored by Azim.
         // POST api/Order
         [HttpPost]
         public IActionResult Post([FromBody] Order orders)
@@ -105,7 +105,7 @@ namespace BangazonAPI.Controllers
 
 
         /*This is a PUT request which modifies a order in the Order Table from the arguments passed in.*/
-        //This class is authored by Azim.
+        //This method is authored by Azim.
         // PUT api/Order/2
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Order orders)
@@ -141,7 +141,7 @@ namespace BangazonAPI.Controllers
             return new StatusCodeResult(StatusCodes.Status204NoContent);
         }
         /*This is a DELETE request which deletes a order in the Order Table from the id it passed in.*/
-        //This class is authored by Azim.
+        //This method is authored by Azim.
         // DELETE api/Order/2
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
