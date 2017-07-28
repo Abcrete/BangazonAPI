@@ -23,6 +23,7 @@ namespace BangazonAPI.Controllers
         }
          /*This method is a GET request which takes zero arguments and returns all trainingprogram
         in TrainingProgram Table of database.*/
+        //This class is authored by Azim.
         // GET api/trainingprogram
         [HttpGet]
         public IActionResult Get()
@@ -39,7 +40,7 @@ namespace BangazonAPI.Controllers
         }
         /*This method is a GET request which takes id as a TPId and returns requested trainingprogram
         in TrainingProgram Table of database.*/
-
+        //This class is authored by Azim.
         // GET api/trainingprogram/2
         [HttpGet("{id}", Name = "GetTrainingProgram")]
         public IActionResult Get([FromRoute] int id)
@@ -66,7 +67,7 @@ namespace BangazonAPI.Controllers
             }
         }
         /*This is a POST request which creates and adds a trainingProgram to the TrainingProgram Table from the arguments passed in.*/
-
+        //This class is authored by Azim.
         // POST api/trainingprogram
         [HttpPost]
         public IActionResult Post([FromBody] TrainingProgram trainProgs)
@@ -102,6 +103,7 @@ namespace BangazonAPI.Controllers
             return _context.TrainingProgram.Count(e => e.TrainingProgramId == trainingProgramId) > 0;
         }
         /*This is a PUT request which modifies a trainingProgram in the TrainingProgram Table from the arguments passed in.*/
+        //This class is authored by Azim.
         // PUT api/trainingprogram/2
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] TrainingProgram trainProgs)
@@ -137,6 +139,7 @@ namespace BangazonAPI.Controllers
             return new StatusCodeResult(StatusCodes.Status204NoContent);
         }
         /*This is a DELETE request which deletes a trainingProgram in the TrainingProgram Table from the id it passed in.*/
+        //This class is authored by Azim. 
         // DELETE api/trainingprogram/2
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

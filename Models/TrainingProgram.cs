@@ -14,7 +14,6 @@ namespace BangazonAPI.Models
       need to be submitted by the user*/
     [Key]
     public int TrainingProgramId { get; set; }
-
     [Required]
     public string Name { get; set; }
 
