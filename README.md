@@ -53,7 +53,7 @@ ex.
 
 
 ## To ensure only Bangazonians can make requests to the Web Api
-### Create a seperate Project With Ajax request to localhost:5000/api/value
+* Create a seperate Project With Ajax request to localhost:5000/api/value
 ```
 Use this code :
 <html><title></title> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <script>
@@ -75,13 +75,13 @@ Open your terminal and add code :
 ```
 1. sudo vim /etc/hosts
 
-will be prompted to enter your Password
-enter i to insert
+Will be prompted to enter your Password
+Enter i to insert
 
-add an alias for localhost IP Address
+Add an alias for localhost IP Address
 2. 127.0.0.1    www.Bangazon.com
 
-save changes by entering 
+Save changes by entering 
 3. :x
 
 Start sudo server with the Browser default Port of 80
@@ -93,17 +93,18 @@ Data should be displayed in the console.
 
 
 ### For Windows users Find Hosts File
-
+```
 1. C:\Windows\System32\drivers\etc\hosts
 
 Open NotePad as Administrator and add 
-1. 127.0.0.1    www.Bangazon.com
+2. 127.0.0.1    www.Bangazon.com
 
 save changes by entering 
-1. :x
+3. :x
 
-### Start sudo server with the Browser default Port of 80
-sudo http-server -p 80
+Start sudo server with the Browser default Port of 80
+4. sudo http-server -p 80
+```
 
 Then run localhost:5000 server
 Open your browser with www.Bangazon.com
