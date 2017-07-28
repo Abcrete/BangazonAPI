@@ -33,19 +33,19 @@
 ### First Clone the Repository 
 https://github.com/Abcrete/BangazonAPI
 
-* To Run Code :
+To Run Code :
 ```
 1. dotnet restore
 
 * Migration
 This will read the Models and build the instructions necessary to create corresponding tables in the database based off of your annotations and foreign key relationships.
 
-1.  dotnet ef migrations add InitialDBCreation
+2.  dotnet ef migrations add InitialDBCreation
 
 * Update Database
 Execute the instructions created by the Migration and Build the Database
 
-1. dotnet ef database update
+3. dotnet ef database update
 ```
 
 * Use PostMan to Post Values to Database
@@ -53,7 +53,7 @@ ex.
 
 
 ## To ensure only Bangazonians can make requests to the Web Api
-* Create a seperate Project With Ajax request to localhost:5000/api/value
+### Create a seperate Project With Ajax request to localhost:5000/api/value
 ```
 Use this code :
 <html><title></title> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <script>
@@ -79,13 +79,13 @@ will be prompted to enter your Password
 enter i to insert
 
 add an alias for localhost IP Address
-1. 127.0.0.1    www.Bangazon.com
+2. 127.0.0.1    www.Bangazon.com
 
 save changes by entering 
-:x
+3. :x
 
-### Start sudo server with the Browser default Port of 80
-sudo http-server -p 80
+Start sudo server with the Browser default Port of 80
+4. sudo http-server -p 80
 ```
 Then run localhost:5000 server
 Open your browser with www.Bangazon.com
@@ -94,18 +94,17 @@ Data should be displayed in the console.
 
 ### For Windows users Find Hosts File
 
-```
 1. C:\Windows\System32\drivers\etc\hosts
 
 Open NotePad as Administrator and add 
 1. 127.0.0.1    www.Bangazon.com
 
 save changes by entering 
-:x
+1. :x
 
 ### Start sudo server with the Browser default Port of 80
 sudo http-server -p 80
-```
+
 Then run localhost:5000 server
 Open your browser with www.Bangazon.com
 Data should be displayed in the console.
