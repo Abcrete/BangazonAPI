@@ -1,3 +1,5 @@
+//Authored by: Jason Smith
+//Purpose: create a product object to represent items in the database and items being posted
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -5,6 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BangazonAPI.Models
 {
+    // Product class represents a product created by a customer, it has a many to many relationship with order
+    //Authored by: Jason Smith
     public class Product
     {
         [Key]
