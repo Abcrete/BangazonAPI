@@ -33,6 +33,20 @@
 ### First Clone the Repository 
 https://github.com/Abcrete/BangazonAPI
 
+## Create an Environment Variable to set file path for Database
+* Open .zshrc file
+```
+1. vim ~/.zshrc
+2. enter i to insert
+
+Add variable
+3. export BANGAZON_DB="/Users/YourNameHere/workspace/csharp/BangazonAPI/Bangazon.db"
+4. press esc
+5. :x to Save and exit vim
+to refresh file 
+6. source ~/.zshrc
+```
+
 To Run Code :
 ```
 1. dotnet restore
@@ -48,8 +62,35 @@ Execute the instructions created by the Migration and Build the Database
 3. dotnet ef database update
 ```
 
-* Use PostMan to Post Values to Database
-ex.
+## Use PostMan to Post Values to Database
+Make sure to have Postman installed: https://www.getpostman.com/
+```
+Example:
+{
+        "ProductTypeId": 4,
+	"Price": 11.00,
+	"Title": "Pizza",
+	"Description": "A giant slice of delicious pizza from Joey's.",
+	"CustomerId": 1,
+	"ProductAmount": 1,
+}
+
+To view all products:
+Select GET
+http://localhost:5000/api/product
+
+To view a single product:
+Select GET
+http://localhost:5000/api/product/{id}
+
+To edit a single product
+Select PUT
+http://localhost:5000/api/product/{id}
+
+To delete a single product
+Select DELETE
+http://localhost:5000/api/product/{id}
+```
 
 
 ## To ensure only Bangazonians can make requests to the Web Api
@@ -69,8 +110,8 @@ $.ajax({
 ```
 
 
-## Create a sudo alias for localhost:8080
-### For IOS users
+## Create a sudo alias for localhost
+### For Mac users
 Open your terminal and add code :
 ```
 1. sudo vim /etc/hosts
@@ -84,10 +125,12 @@ Add an alias for localhost IP Address
 Save changes by entering 
 3. :x
 
-Start sudo server with the Browser default Port of 80
-4. sudo http-server -p 80
+In your Bangazon Project start your server with port 5000
+4. dotnet run
+
+In the terminal for AJAX request project file. Start a sudo server with the Browser default Port of 80
+5. sudo http-server -p 80
 ```
-Then run localhost:5000 server
 Open your browser with www.Bangazon.com
 Data should be displayed in the console.
 
@@ -102,11 +145,12 @@ Open NotePad as Administrator and add
 save changes by entering 
 3. :x
 
-Start sudo server with the Browser default Port of 80
-4. sudo http-server -p 80
-```
+In your Bangazon Project start your server with port 5000
+4. dotnet run
 
-Then run localhost:5000 server
+In the terminal for AJAX request project file. Start a sudo server with the Browser default Port of 80
+5. sudo http-server -p 80
+```
 Open your browser with www.Bangazon.com
 Data should be displayed in the console.
 
