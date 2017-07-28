@@ -93,7 +93,7 @@ http://localhost:5000/api/product/{id}
 ```
 
 
-## To ensure only Bangazonians can make requests to the Web Api
+## To Test that only Bangazonians can make requests to the Web Api
 * Create a seperate Project With Ajax request to localhost:5000/api/value
 ```
 Use this code :
