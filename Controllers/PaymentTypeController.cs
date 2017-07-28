@@ -7,7 +7,6 @@ using BangazonAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-customer
 namespace BangazonAPI.Controllers
 {
     [Route("api/[controller]")]
