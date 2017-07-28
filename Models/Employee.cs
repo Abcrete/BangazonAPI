@@ -6,31 +6,37 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BangazonAPI.Models
 {
+  // Use Models in namespace for reference to Employee.cs location
+  // Authored by: Tamela Lerma
 
-  // <summary>
-  // Creates instance of Employee class with properties to set name, FK-DepartmentId from Department Table
-  // All Properties are Required
   public class Employee
   {
-
-    // <summary>
-    // Key will auto-increment new entries for EmployeeId, EmployeeId allows get and set of the ID
+     // Key will auto-increment new entries for EmployeeId, PK
+    // Authored by: Tamela Lerma
     [Key]
     public int EmployeeId { get; set; }
     
+    // Get and Set Employee First Name
+    // Authored by: Tamela Lerma
     [Required]
     public string FirstName {get; set;}
+
+    // Get and Set Employee Last Name 
+    // Authored by: Tamela Lerma
     [Required]
     public string LastName {get; set;}
 
 
-    // <summary>
-    // FK-DepartmentId from Department Table, instance of the Class must be create
+    // Get and Set Employee DepartmentId
+    // FK-DepartmentId from Department Table
+    // Must create an instance of the Class Department to retrieve FK 
+    // Authored by: Tamela Lerma
     [Required]
     public int DepartmentId {get; set;}
     public Department Department {get; set;}
 
-    // <summary>
+
+    // Get and set IsSupervisor 0 = False, 1 = True
     // SqLite will not accept Bool int Value, Using Sql format of 0 and 1 to establish true or false
     // 0 = False
     // 1 = True
@@ -38,8 +44,12 @@ namespace BangazonAPI.Models
     public int IsSupervisor {get; set;}
 
 
+    // Joined Tables build for when it is Required
+    // Authored by : Tamela Lerma
     // public ICollection<EmployeeComputer> EmployeeComputer;
 
+    // Joined Tables build for when it is Required
+    // Authored by : Tamela Lerma
     // public ICollection<EmployeeTraining> EmployeeTraining;
 
   }

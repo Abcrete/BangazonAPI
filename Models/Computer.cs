@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 // Authored by: Tamela Lerma
 namespace BangazonAPI.Models
 {
+
     public class Computer
     {
         // Key will auto-increment new entries for ComputerId, ComputerId allows get and set of the ID
