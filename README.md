@@ -29,30 +29,27 @@
 1. TrainingProgramController
 1. DepartmentController
 
-### How to Test 
-
-
-## First Clone the Repository 
+# How to Test 
+### First Clone the Repository 
 https://github.com/Abcrete/BangazonAPI
 
 * To Run Code :
 ```
 1. dotnet restore
-```
 
 * Migration
 This will read the Models and build the instructions necessary to create corresponding tables in the database based off of your annotations and foreign key relationships.
-```
+
 1.  dotnet ef migrations add InitialDBCreation
-```
 
 * Update Database
 Execute the instructions created by the Migration and Build the Database
-```
+
 1. dotnet ef database update
 ```
 
 * Use PostMan to Post Values to Database
+ex.
 
 
 ## To ensure only Bangazonians can make requests to the Web Api
@@ -73,7 +70,7 @@ $.ajax({
 
 
 ## Create a sudo alias for localhost:8080
-# For IOS users
+### For IOS users
 Open your terminal and add code :
 ```
 1. sudo vim /etc/hosts
@@ -86,10 +83,8 @@ add an alias for localhost IP Address
 
 save changes by entering 
 :x
-```
 
-# Start sudo server with the Browser default Port of 80
-```
+### Start sudo server with the Browser default Port of 80
 sudo http-server -p 80
 ```
 Then run localhost:5000 server
@@ -97,7 +92,7 @@ Open your browser with www.Bangazon.com
 Data should be displayed in the console.
 
 
-## For Windows users Find Hosts File
+### For Windows users Find Hosts File
 
 ```
 1. C:\Windows\System32\drivers\etc\hosts
@@ -107,10 +102,8 @@ Open NotePad as Administrator and add
 
 save changes by entering 
 :x
-```
 
-# Start sudo server with the Browser default Port of 80
-```
+### Start sudo server with the Browser default Port of 80
 sudo http-server -p 80
 ```
 Then run localhost:5000 server
