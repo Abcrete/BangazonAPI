@@ -2,7 +2,7 @@
 
 
 
- .NET Web API  built that makes each resource in the Bangazon ERD available to application developers throughout the entire company.
+ .NET Web API app that makes each resource in the Bangazon ERD available to application developers throughout the entire company.
 
 
 ### Model Classes Used to build DataBase structure, Primary and Foreign Keys
@@ -34,20 +34,20 @@
 https://github.com/Abcrete/BangazonAPI
 
 ## Create an Environment Variable to set file path for Database
-* Open .zshrc file
+* On Mac open and edit your .zshrc file in terminal
 ```
 1. vim ~/.zshrc
 2. enter i to insert
 
 Add variable
-3. export BANGAZON_DB="/Users/YourNameHere/workspace/csharp/BangazonAPI/Bangazon.db"
+3. export BANGAZON_DB="/Enter the full filepath to the directory where you cloned the repo/Bangazon.db"
 4. press esc
 5. :x to Save and exit vim
-to refresh file 
+to refresh file type the following command in terminal and hit enter:
 6. source ~/.zshrc
 ```
 
-To Run Code :
+Navigate to your project directory in terminal and run the following commands:
 ```
 1. dotnet restore
 
@@ -65,9 +65,8 @@ Execute the instructions created by the Migration and Build the Database
 ## Use PostMan to Post Values to Database
 Make sure to have Postman installed: https://www.getpostman.com/
 ```
-Example:
+Example for Product:
 {
-        "ProductTypeId": 4,
 	"Price": 11.00,
 	"Title": "Pizza",
 	"Description": "A giant slice of delicious pizza from Joey's.",
@@ -91,68 +90,6 @@ To delete a single product
 Select DELETE
 http://localhost:5000/api/product/{id}
 ```
-
-
-## To Test that only Bangazonians can make requests to the Web Api
-* Create a seperate Project With Ajax request to localhost:5000/api/value
-```
-Use this code :
-<html><title></title> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <script>
-$.ajax({
-    url: "http://localhost:5000/api/ValueYouWishToTest",
-                   method: "GET"
-}).done(function(data){
-    console.log("Data", data);
-});
-
-</script>
-</html>
-```
-
-
-## Create a sudo alias for localhost
-### For Mac users
-Open your terminal and add code :
-```
-1. sudo vim /etc/hosts
-
-Will be prompted to enter your Password
-Enter i to insert
-
-Add an alias for localhost IP Address
-2. 127.0.0.1    www.Bangazon.com
-
-Save changes by entering 
-3. :x
-
-In your Bangazon Project start your server with port 5000
-4. dotnet run
-
-In the terminal for AJAX request project file. Start a sudo server with the Browser default Port of 80
-5. sudo http-server -p 80
-```
-Open your browser with www.Bangazon.com
-Data should be displayed in the console.
-
-
-### For Windows users Find Hosts File
-```
-1. C:\Windows\System32\drivers\etc\hosts
-
-Open NotePad as Administrator and add 
-2. 127.0.0.1    www.Bangazon.com
-
-save changes by entering 
-3. :x
-
-In your Bangazon Project start your server with port 5000
-4. dotnet run
-
-In the terminal for AJAX request project file. Start a sudo server with the Browser default Port of 80
-5. sudo http-server -p 80
-```
-Open your browser with www.Bangazon.com
-Data should be displayed in the console.
 
 
 ## This application consists of:
