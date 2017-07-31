@@ -34,6 +34,6 @@ namespace BangazonAPI.Models
     public PaymentType PaymentType { get; set; }
 
     //The following is collection represent tables in which orderId is a Foreign Key
-    public ICollection<OrderProduct> OrderProducts;
+    public ICollection<OrderProduct> OrderProducts { get; set; }
   }
 }

@@ -35,7 +35,8 @@ namespace BangazonAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            IQueryable<object> customers = from person in _context.Customer select person;
+            IQueryable<object> customers = _context.Customer;
+            // IQueryable<object> customers = from person in _context.Customer select person;
 
             if (customers == null)
             {
