@@ -43,11 +43,12 @@ namespace BangazonAPI.Models
     [Required]
     public int IsSupervisor {get; set;}
 
-
-    // Joined Table Using EmployeeComputer Model
-    // Employee can have many computers butu a computer can only have one employee
-    // Authored by : Tamela Lerma
     public ICollection<EmployeeComputer> EmployeeComputer;
+    
+
+    // public ICollection<EmployeeTraining> EmployeeTrainingProgram;
+
+    
 
   }
 }

@@ -27,7 +27,7 @@ namespace BangazonAPI.Models
         [DataType(DataType.Date)]
         public DateTime? DateDecommissioned {get; set;}
 
-        // FK for Joined Table EmployeeComputer, No controller yet written
+        // FK for Joined Table EmployeeComputer
         // public ICollection<EmployeeComputer> EmployeeComputer;
         // Authored by: Tamela Lerma
     }
