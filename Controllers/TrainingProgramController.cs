@@ -155,7 +155,18 @@ namespace BangazonAPI.Controllers
                 return NotFound();
             }
 
-            _context.TrainingProgram.Remove(trainProgs);
+            //Getting local time and compare the data in the database and it will delete if it has not started yet
+            DateTime localDate = DateTime.Now;
+            int result = DateTime.Compare(localDate, trainProgs.StartDate);
+
+            if (result < 0)
+            {
+                _context.TrainingProgram.Remove(trainProgs);     
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
             _context.SaveChanges();
 
             return Ok(trainProgs);

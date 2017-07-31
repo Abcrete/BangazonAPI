@@ -21,7 +21,7 @@ namespace BangazonAPI.Data
         // public DbSet<EmployeeComputer> EmployeeComputer { get; set; }
         public DbSet<PaymentType> PaymentType { get; set; }
         public DbSet<TrainingProgram> TrainingProgram { get; set; }
-        // public DbSet<EmployeeTraining> EmployeeTraining { get; set; }
+        public DbSet<EmployeeTraining> EmployeeTraining { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
