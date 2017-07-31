@@ -46,8 +46,6 @@ namespace BangazonAPI.Models
     public ICollection<EmployeeComputer> EmployeeComputer;
     
 
-    public ICollection<EmployeeTraining> EmployeeTraining;
-
     // Joined Tables build for when it is Required
     // Authored by : Tamela Lerma
     public ICollection<EmployeeTraining> EmployeeTraining;
