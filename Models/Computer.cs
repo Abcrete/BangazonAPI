@@ -24,12 +24,11 @@ namespace BangazonAPI.Models
 
         // SqLite stores as string, to testing requests formating uses standard IOS DateTime format, ex. "yyyy-MM-dd 'at' HH:mm"
         // Authored by: Tamela Lerma
-        [Required]
         [DataType(DataType.Date)]
-        public DateTime? DateDecomissioned {get; set;}
+        public DateTime? DateDecommissioned {get; set;}
 
-        // FK for Joined Table EmployeeComputer, No controller yet written
-        // public ICollection<EmployeeComputer> EmployeeComputer;
+        // FK for Joined Table EmployeeComputer
+        public ICollection<EmployeeComputer> EmployeeComputer;
         // Authored by: Tamela Lerma
     }
 }

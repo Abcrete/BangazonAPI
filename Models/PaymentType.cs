@@ -16,7 +16,7 @@ namespace BangazonAPI.Models
         public int PaymentTypeId { get; set; }
         //Property of PaymentType
         [Required]
-        public int AccountNumber { get; set; }
+        public Int64 AccountNumber { get; set; }
         //Property of PaymentType
         [Required]
         public string Type { get; set; }

@@ -22,8 +22,7 @@ namespace BangazonAPI.Controllers
         }
 
         /*This internal method checks for the existence of a customer based on the customerId argument.
-        This method was authored by Jordan Dhaenens */
-        
+        This method was authored by Jordan Dhaenens */        
         private bool CustomerExists(int customerId)
         {
           return _context.Customer.Count(e => e.CustomerId == customerId) > 0;
@@ -71,7 +70,7 @@ namespace BangazonAPI.Controllers
                 
                 return Ok(person);
             }
-            catch (System.InvalidOperationException ex)
+            catch (System.InvalidOperationException)
             {
                 return NotFound();
             }
