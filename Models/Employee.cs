@@ -43,14 +43,12 @@ namespace BangazonAPI.Models
     [Required]
     public int IsSupervisor {get; set;}
 
+    public ICollection<EmployeeComputer> EmployeeComputer;
+    
 
-    // Joined Tables build for when it is Required
-    // Authored by : Tamela Lerma
-    // public ICollection<EmployeeComputer> EmployeeComputer;
+    public ICollection<EmployeeTraining> EmployeeTraining;
 
-    // Joined Tables build for when it is Required
-    // Authored by : Tamela Lerma
-    // public ICollection<EmployeeTraining> EmployeeTraining;
+    
 
   }
 }

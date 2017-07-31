@@ -17,6 +17,7 @@
 1. Computer
 1. TrainingProgram
 1. Department
+1. EmployeeComputer  JT
 
 ### Controllers That Handle Get, Post, Put and Delete operations
 1. ProductController            operations: Get(), Post(), Put(), Delete()
@@ -28,6 +29,7 @@
 1. ComputerController           operations: Get(), Post(), Put(), Delete()
 1. TrainingProgramController    operations: Get(), Post(), Put(), Delete()
 1. DepartmentController         operations: Get(), Post(), Put()
+
 
 # How to Test 
 ### First Clone the Repository 
@@ -50,16 +52,10 @@ to refresh file type the following command in terminal and hit enter:
 Navigate to your project directory in terminal and run the following commands:
 ```
 1. dotnet restore
-
-* Migration
-This will read the Models and build the instructions necessary to create corresponding tables in the database based off of your annotations and foreign key relationships.
-
-2.  dotnet ef migrations add InitialDBCreation
-
 * Update Database
 Execute the instructions created by the Migration and Build the Database
 
-3. dotnet ef database update
+2. dotnet ef database update
 ```
 
 ## Use PostMan to Post Values to Database
