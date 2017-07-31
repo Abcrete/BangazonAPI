@@ -8,9 +8,7 @@ obj
 *.sqlite3
 .vscode
 
-#For API migrations directory
-Migrations
-migrations
+
 
 
 =======
