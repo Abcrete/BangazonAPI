@@ -32,7 +32,7 @@ namespace BangazonAPI.Models
         /*This property will eventually need to be manualy entered by the code everytime a customer logs in.
         This property was authored by Jordan Dhaenens*/
         [DataType(DataType.Date)]
-        public DateTime LastLogin { get; set; }
+        public DateTime? LastLogin { get; set; }
         
         [Required]
         public int IsActive { get; set; }
