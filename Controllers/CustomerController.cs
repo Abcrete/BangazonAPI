@@ -29,7 +29,7 @@ namespace BangazonAPI.Controllers
         }
 
         /*This method is a GET request which takes zero arguments and returns all customers
-        in Customer Table of database.
+        from Customer Table of database.
         This method was authored by Jordan Dhaenens*/
         // GET path~ api/customer
         [HttpGet]
