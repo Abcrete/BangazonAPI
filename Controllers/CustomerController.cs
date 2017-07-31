@@ -28,22 +28,29 @@ namespace BangazonAPI.Controllers
           return _context.Customer.Count(e => e.CustomerId == customerId) > 0;
         }
 
-        /*This method is a GET request which takes zero arguments and returns all customers
-        from Customer Table of database.
-        This method was authored by Jordan Dhaenens*/
-        // GET path~ api/customer
+        /*This method is a GET request which takes one or zero arguments and returns all customers
+        from Customer Table of database if there is no argument, or the URL doesn't match "active=true" or "active=false".
+        This method was authored by Jason Smith*/
+        // GET path~ api/customer    -or-
+        // GET path~ api/customer?active=bool
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(string active)
         {
-            IQueryable<object> customers = from person in _context.Customer select person;
+            IQueryable<object> customers;
+            if(active == "true") {
+                customers = from p in _context.Customer where p.IsActive == 1 select p;
+            } else if(active == "false") {
+                customers = from p in _context.Customer where p.IsActive == 0 select p;
+            } else {
+                customers = from person in _context.Customer select person;
+            }
 
             if (customers == null)
             {
                 return NotFound();
             }
-
+            
             return Ok(customers);
-
         }
 
         /*This overload method is a GET request which takes one argument, "id", and returns a single customer
