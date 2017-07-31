@@ -70,7 +70,7 @@ namespace BangazonAPI.Controllers
                 
                 return Ok(person);
             }
-            catch (System.InvalidOperationException ex)
+            catch (System.InvalidOperationException)
             {
                 return NotFound();
             }
