@@ -169,30 +169,5 @@ namespace BangazonAPI.Controllers
 
             return new StatusCodeResult(StatusCodes.Status204NoContent);
         }
-
-
-        // Delete not yet added to Sprint may be added at later date
-        // Authored by: Tamela Lerma
-        //Delete api/employee/id
-        // [HttpDelete("{id}")]
-        // public IActionResult Delete(int id)
-        // {
-        //     if (!ModelState.IsValid)
-        //     {
-        //         return BadRequest(ModelState);
-        //     }
-
-        //     Employee employee = _context.Employee.Single(p => p.EmployeeId == id);
-        //     if (employee == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     _context.Employee.Remove(employee);
-        //     _context.SaveChanges();
-
-        //     return Ok(employee);
-
-        // }
     }
 }
