@@ -28,7 +28,7 @@ namespace BangazonAPI.Models
         public DateTime? DateDecommissioned {get; set;}
 
         // FK for Joined Table EmployeeComputer
-        // public ICollection<EmployeeComputer> EmployeeComputer;
+        public ICollection<EmployeeComputer> EmployeeComputer;
         // Authored by: Tamela Lerma
     }
 }

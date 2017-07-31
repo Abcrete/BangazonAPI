@@ -46,7 +46,7 @@ namespace BangazonAPI.Models
     public ICollection<EmployeeComputer> EmployeeComputer;
     
 
-    // public ICollection<EmployeeTraining> EmployeeTrainingProgram;
+    public ICollection<EmployeeTraining> EmployeeTraining;
 
     
 
