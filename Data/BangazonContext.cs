@@ -21,7 +21,6 @@ namespace BangazonAPI.Data
         public DbSet<EmployeeComputer> EmployeeComputer { get; set; }
         public DbSet<PaymentType> PaymentType { get; set; }
         public DbSet<TrainingProgram> TrainingProgram { get; set; }
-        // public DbSet<EmployeeTraining> EmployeeTraining { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,9 +32,6 @@ namespace BangazonAPI.Data
                 .Property(c => c.AcctCreatedOn)
                 .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
                 
-            modelBuilder.Entity<Customer>()
-                .Property(e => e.LastLogin)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
 
         }
     }
