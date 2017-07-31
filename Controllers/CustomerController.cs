@@ -33,17 +33,23 @@ namespace BangazonAPI.Controllers
         This method was authored by Jordan Dhaenens*/
         // GET path~ api/customer
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(string active)
         {
-            IQueryable<object> customers = from person in _context.Customer select person;
+            IQueryable<object> customers;
+            if(active == "true") {
+                customers = from p in _context.Customer where p.IsActive == 1 select p;
+            } else if(active == "false") {
+                customers = from p in _context.Customer where p.IsActive == 0 select p;
+            } else {
+                customers = from person in _context.Customer select person;
+            }
 
             if (customers == null)
             {
                 return NotFound();
             }
-
+            
             return Ok(customers);
-
         }
 
         /*This overload method is a GET request which takes one argument, "id", and returns a single customer
