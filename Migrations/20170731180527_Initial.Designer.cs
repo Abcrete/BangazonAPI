@@ -8,8 +8,8 @@ using BangazonAPI.Data;
 namespace BangazonAPI.Migrations
 {
     [DbContext(typeof(BangazonContext))]
-    [Migration("20170731162252_InitialDBCreation")]
-    partial class InitialDBCreation
+    [Migration("20170731180527_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
