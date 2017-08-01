@@ -52,7 +52,7 @@ namespace BangazonAPI.Controllers
 
             try
             {
-                Order orders = _context.Order.Single(m => m.OrderId == id);
+                Order orders = _context.Order.Include("OrderProducts.Product").Single(m => m.OrderId == id);
 
                 if (orders == null)
                 {
